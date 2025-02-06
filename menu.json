@@ -1,3 +1,13 @@
 {
-  "menus": []
+  "menus": [
+    {
+      "isActive": true,
+      "products": [
+        {
+          "posId": "sample",
+          "imageUri": "https://www.shutterstock.com/image-vector/whale-container-computer-docker-developer-app-2038221926"
+        }
+      ]
+    }
+  ]
 }
