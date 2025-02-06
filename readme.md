@@ -16,7 +16,7 @@
                 "products": [
                     {
                         "posId": "sample",
-                        "imageUri": "https://www.shutterstock.com/image-vector/whale-container-computer-docker-developer-app-2038221926"
+                        "imageUri": "https://example.com/sample.png"
                     }
                 ]
             }
@@ -28,3 +28,8 @@
  - run cmd `yarn build`
  - run cmd `yarn start`
  - you can check compressed images in output folder
+
+ # tested this with sys requirements
+ - yarn 1.22.19
+ - nvm 0.39.3
+ - node v18.17.0
