@@ -43,7 +43,7 @@ export async function compressImageFromUrl(
     }
 
     // Generate output file path
-    const fileExtension = format === "jpeg" ? "jpg" : format; // Ensure correct extension
+    const fileExtension = format === "jpeg" ? "jpeg" : format; // Ensure correct extension
     const outputPath = path.join(outputDir, `${fileName}.${fileExtension}`);
 
     console.log(`Processing image...`);
