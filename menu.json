@@ -5,7 +5,7 @@
       "products": [
         {
           "posId": "sample",
-          "imageUri": "https://www.shutterstock.com/image-vector/whale-container-computer-docker-developer-app-2038221926"
+          "imageUri": "https://example.com/sample.png"
         }
       ]
     }
