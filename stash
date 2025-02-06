@@ -1,0 +1,16 @@
+// Function to convert the image
+// const convertImage = async (outputFormat: any, inputFilePath: string):Promise<void> =>  {
+//   try {
+//     const image = await sharp(inputFilePath)
+//       .rotate() // Auto-orient based on EXIF metadata
+//       .resize({ width: 1000, withoutEnlargement: true }) // Resize while maintaining aspect ratio
+//       .toFormat(outputFormat, { quality: 90 }) // Convert to JPEG with compression
+//       .toFile(`output/image1.${outputFormat}`);
+//     console.log(`Image successfully converted to ${outputFormat} and saved to`);
+//   } catch (error) {
+//     console.error('Error converting image:', error);
+//   }
+// }
+
+// Example usage: convert to WebP
+// convertImage('webp', 'https://till-x-prod-green-storage.s3.ap-southeast-2.amazonaws.com/images/product/01JA6HWHCJ1FW38JB5PZDZS4R0/594e377f-1ff7-4209-a6d6-a241136372a3.jpeg');
