@@ -48,6 +48,10 @@ jspm_packages/
 # TypeScript v1 declaration files
 typings/
 
+# Image folders - don't commit input/output images
+input/
+output/
+
 # TypeScript cache
 *.tsbuildinfo
 

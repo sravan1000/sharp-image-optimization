@@ -59,6 +59,52 @@ export async function compressImageFromUrl(
   }
 }
 
+/**
+ * Compress a local image file while maintaining its original format.
+ * @param inputPath Full path to the local image file.
+ * @param outputDir Directory to save the compressed image.
+ * @param fileName Desired output filename (without extension).
+ * @param maxWidth Maximum width of the resized image.
+ * @param quality Compression quality (1-100, applicable for lossy formats).
+ */
+export async function compressLocalImage(
+  inputPath: string,
+  outputDir: string,
+  fileName: string,
+  maxWidth: number = 800,
+  quality: number = 80
+): Promise<void> {
+  try {
+    console.log(`Processing local image: ${inputPath}`);
+    
+    // Read the local image file
+    const imageBuffer = fs.readFileSync(inputPath);
+
+    // Detect image format
+    const metadata = await sharp(imageBuffer).metadata();
+    const format = metadata.format;
+
+    if (!format) {
+      throw new Error("Could not determine image format");
+    }
+
+    // Generate output file path
+    const fileExtension = format === "jpeg" ? "jpeg" : format;
+    const outputPath = path.join(outputDir, `${fileName}.${fileExtension}`);
+
+    console.log(`Compressing image...`);
+    await sharp(imageBuffer)
+      .rotate() // Auto-orient based on EXIF metadata
+      .resize({ width: maxWidth, withoutEnlargement: true }) // Resize while keeping aspect ratio
+      .toFormat(format, format === "jpeg" || format === "webp" ? { quality } : {}) // Apply quality only for lossy formats
+      .toFile(outputPath);
+
+    console.log(`Image saved at: ${outputPath}`);
+  } catch (error) {
+    console.error("Error processing local image:", error);
+  }
+}
+
 // // Example Usage
 // const imageUrl = "https://example.com/sample.png"; // Replace with actual image URL
 // const outputDirectory = __dirname; // Save in the current directory
